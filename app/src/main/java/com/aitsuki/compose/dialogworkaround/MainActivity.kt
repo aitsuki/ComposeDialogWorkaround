@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.aitsuki.compose.dialogworkaround
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -39,9 +39,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.aitsuki.compose.dialogworkaround.R
-import com.example.myapplication.ui.component.CenterDialog
-import com.example.myapplication.ui.component.WorkaroundDialog
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.aitsuki.compose.dialogworkaround.ui.component.CenterDialog
+import com.aitsuki.compose.dialogworkaround.ui.component.WorkaroundDialog
+import com.aitsuki.compose.dialogworkaround.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
 

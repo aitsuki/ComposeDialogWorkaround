@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.component
+package com.aitsuki.compose.dialogworkaround.ui.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

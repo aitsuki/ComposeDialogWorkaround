@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.theme
+package com.aitsuki.compose.dialogworkaround.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
