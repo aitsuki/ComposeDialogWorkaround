@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Compose Dialog Workaround"
+rootProject.name = "ComposeDialogWorkaround"
 include(":app")

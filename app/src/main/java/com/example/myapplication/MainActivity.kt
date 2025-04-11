@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,9 +16,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.shapes
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.OutlinedTextField
@@ -31,14 +35,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.aitsuki.compose.dialogworkaround.R
+import com.example.myapplication.ui.component.CenterDialog
 import com.example.myapplication.ui.component.WorkaroundDialog
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
             MyApplicationTheme {
@@ -66,8 +74,16 @@ private fun HomeContent() {
 
     if (showSimpleDialog) {
         if (workaround) {
-            WorkaroundDialog(onDismissRequest = { showSimpleDialog = false }) {
-                SimpleDialogContent()
+//            WorkaroundDialog(onDismissRequest = { showSimpleDialog = false }) {
+//                SimpleDialogContent()
+//            }
+            CenterDialog(
+                onDismissRequest = { showSimpleDialog = false },
+            ) {
+                Text(
+                    stringResource(R.string.lorem_ipsum),
+                    modifier = Modifier.verticalScroll(rememberScrollState())
+                )
             }
         } else {
             Dialog(onDismissRequest = { showSimpleDialog = false }) {
@@ -142,7 +158,7 @@ private fun HomeContent() {
 
 @Composable
 private fun SimpleDialogContent() {
-    Surface(shape = shapes.extraLarge) {
+    Surface(shape = shapes.extraLarge, color = MaterialTheme.colorScheme.primary) {
         Text(
             text = "Simple Dialog",
             style = typography.displaySmall,

@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="WorkaroundComposeDialogTheme" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="android:windowClipToOutline">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowElevation">0dp</item>
+        <item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
+    </style>
+
+    <style name="WorkaroundComposeDialogWindowTheme">
+        <item name="android:dialogTheme">@style/WorkaroundComposeDialogTheme</item>
+    </style>
 </resources>
